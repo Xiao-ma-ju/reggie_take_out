@@ -1,11 +1,5 @@
 package com.xiaomaju.reggie.common;
 
-/**
- * @PROJECT_NAME: reggie_take_out
- * @DESCRIPTION:
- * @USER: Lu
- * @DATE: 2022/10/23 20:11
- */
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -17,7 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 /**
- * 全局异常处理
+ * @PROJECT_NAME: reggie_take_out
+ * @DESCRIPTION: 全局异常处理
+ * @USER: Lu
+ * @DATE: 2022/10/23 20:11
  */
 @ControllerAdvice(annotations = {RestController.class, Controller.class})
 @ResponseBody
@@ -37,5 +34,12 @@ public class GlobalExceptionHandler {
             return R.error(msg);
         }
         return R.error("未知错误");
+    }
+
+    @ExceptionHandler(CustomException.class)
+    public R<String> exceptionHandler(CustomException ex) {
+        log.error(ex.getMessage());
+
+        return R.error(ex.getMessage());
     }
 }

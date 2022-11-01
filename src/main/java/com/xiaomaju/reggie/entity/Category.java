@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
  * 分类
  */
 @Data
-public class Category implements Serializable {
+public class  Category implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -53,7 +53,7 @@ public class Category implements Serializable {
     private Long updateUser;
 
 
-    //是否删除
-    private Integer isDeleted;
+//    //是否删除
+//    private Integer isDeleted;
 
 }
